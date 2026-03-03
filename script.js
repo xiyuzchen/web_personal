@@ -71,3 +71,62 @@ if (yearSpan) {
   yearSpan.textContent = new Date().getFullYear().toString();
 }
 
+// 图片预览弹窗
+const lightbox = document.getElementById("imageLightbox");
+const lightboxImg = document.getElementById("imageLightboxImg");
+const lightboxCaption = document.getElementById("imageLightboxCaption");
+const lightboxClose = document.getElementById("imageLightboxClose");
+const lightboxBackdrop = document.getElementById("imageLightboxBackdrop");
+
+const openLightbox = (src, caption) => {
+  if (!lightbox || !lightboxImg || !lightboxCaption) return;
+  lightboxImg.src = src;
+  lightboxCaption.textContent = caption || "";
+  lightbox.classList.add("is-open");
+  lightbox.setAttribute("aria-hidden", "false");
+};
+
+const closeLightbox = () => {
+  if (!lightbox || !lightboxImg) return;
+  lightbox.classList.remove("is-open");
+  lightbox.setAttribute("aria-hidden", "true");
+  lightboxImg.src = "";
+};
+
+if (lightboxClose) {
+  lightboxClose.addEventListener("click", closeLightbox);
+}
+
+if (lightboxBackdrop) {
+  lightboxBackdrop.addEventListener("click", closeLightbox);
+}
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeLightbox();
+  }
+});
+
+document.querySelectorAll("[data-full-image]").forEach((element) => {
+  element.style.cursor = "zoom-in";
+  element.addEventListener("click", () => {
+    const src = element.getAttribute("data-full-image");
+    let caption = "";
+
+    const card = element.closest(".card, .hero-card");
+    if (card) {
+      const title =
+        card.querySelector("h3") ||
+        card.querySelector("h2") ||
+        card.querySelector(".hero-card-desc");
+      if (title) {
+        caption = title.textContent.trim();
+      }
+    }
+
+    if (src) {
+      openLightbox(src, caption);
+    }
+  });
+});
+

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>我的个人作品集</title>
+  <title>vihanc的个人网站</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -29,18 +29,18 @@
     <section id="hero" class="hero">
       <div class="container hero-inner">
         <div class="hero-text">
-          <h1>你好，我是<span>vihan chan陈维航</span></h1>
-          <p>西安电子科技大学-通信工程26届,聚焦嵌入式系统开发与视觉算法本地部署。</p>
+          <h1><span>vihan chan 陈维航</span></h1>
+          <p>西安电子科技大学-通信工程26届-聚焦嵌入式软硬件开发与视觉算法本地部署。</p>
           <div class="hero-actions">
             <a href="#portfolio" class="btn primary">项目</a>
             <a href="#contact" class="btn ghost">联系方式</a>
           </div>
         </div>
         <div class="hero-visual">
-          <div class="hero-card">
+          <div class="hero-card" data-full-image="assets/项目0-毕设.png">
             <p class="hero-tag">最近项目</p>
             <h2>基于鸿蒙平台与边缘AI的校园学习专注度智能监测系统设计与实现(毕设)</h2>
-            <p class="hero-card-desc">Hi3863 · Atlas200I · Openpose ·MQTT</p>
+            <p class="hero-card-desc">Hi3863 · Atlas200I · Openpose ·MQTT 室内环境下的基于姿态识别的专注度检测系统</p>
             <div class="hero-card-image">
               <img
                 src="assets/项目0-毕设.png"
@@ -61,7 +61,7 @@
         </div>
         <div class="grid portfolio-grid">
           <!-- 3 x 3 = 9 张卡片 -->
-          <article class="card">
+          <article class="card" data-full-image="assets/项目1-车辆路面行人检测.png">
             <div class="card-thumb thumb-1">
               <img
                 src="assets/项目1-车辆路面行人检测.png"
@@ -74,7 +74,7 @@
             </div>
           </article>
 
-          <article class="card">
+          <article class="card" data-full-image="assets/项目2-OFDM.png">
             <div class="card-thumb thumb-6">
               <img
                 src="assets/项目2-OFDM.png"
@@ -87,7 +87,7 @@
             </div>
           </article>
 
-          <article class="card">
+          <article class="card" data-full-image="assets/项目3-透传.png">
             <div class="card-thumb thumb-5">
               <img
                 src="assets/项目3-透传.png"
@@ -100,7 +100,7 @@
             </div>
           </article>
 
-          <article class="card">
+          <article class="card" data-full-image="assets/项目4-室内定位.png">
             <div class="card-thumb thumb-2">
               <img
                 src="assets/项目4-室内定位.png"
@@ -113,7 +113,7 @@
             </div>
           </article>
 
-          <article class="card">
+          <article class="card" data-full-image="assets/项目5-便携式电源.png">
             <div class="card-thumb thumb-4">
               <img
                 src="assets/项目5-便携式电源.png"
@@ -126,7 +126,7 @@
             </div>
           </article>
 
-          <article class="card">
+          <article class="card" data-full-image="assets/项目6-飞镖.png">
             <div class="card-thumb thumb-3">
               <img
                 src="assets/项目6-飞镖.png"
@@ -167,32 +167,44 @@
       </div>
     </section>
 
+    <!-- 图片预览弹窗 -->
+    <div class="image-lightbox" id="imageLightbox" aria-hidden="true">
+      <div class="image-lightbox-backdrop" id="imageLightboxBackdrop"></div>
+      <div class="image-lightbox-dialog" role="dialog" aria-modal="true" aria-labelledby="imageLightboxCaption">
+        <button class="image-lightbox-close" id="imageLightboxClose" aria-label="关闭图片预览">×</button>
+        <div class="image-lightbox-body">
+          <img id="imageLightboxImg" alt="" />
+          <p id="imageLightboxCaption"></p>
+        </div>
+      </div>
+    </div>
+
     <!-- 关于我 -->
     <section id="about" class="section section-alt">
       <div class="container about-grid">
         <div>
-          <h2>关于我</h2>
+          <h2>Info:个人信息</h2>
           <p>
             我叫陈维航，西安电子科技大学通信工程专业，预计 2026 年毕业。
             在校期间主修数电模电，通原通网，电路高频，DSP，信号与系统等课程，GPA 3.6，均分83.2
             分，CET6/457，无挂科重修。
           </p>
           <p>
-            Romomaster2023机甲大师超级对抗赛全国赛团体二等奖；
-            第33届星火杯校赛硬件赛道二等奖；
+            Romomaster2023机甲大师超级对抗赛全国赛团体二等奖；<br />
+            第33届星火杯校赛硬件赛道二等奖；<br />
             2022-2023学年综合发展奖学金三等奖；
           </p>
         </div>
         <div>
           <h3>技能栈</h3>
           <ul class="skill-list">
-            <li><span>MCU </span><span class="skill-level">STM32F103 / F407 / F411</span></li>
-            <li><span>SoC</span><span class="skill-level">NVIDIA Xavier NX · Atlas 200 DK</span></li>
-            <li><span>编程语言</span><span class="skill-level">C / C++ · MATLAB · Verilog</span></li>
-            <li><span>通信模块</span><span class="skill-level">UWB（dwm1000）· NRF24L01 · HC05</span></li>
-            <li><span>视觉与算法</span><span class="skill-level">YOLOv5 · OpenPose </span></li>
-            <li><span>无线传输</span><span class="skill-level">DeepStream · MQTT · ffmpeg </span></li>
-            <li><span>开发工具</span><span class="skill-level">VSCode · Keil · Matlab · Multisim · Quartus</span></li>
+            <li><span>MCU:</span><span class="skill-level">STM32F103 / F407 / F411</span></li>
+            <li><span>SoC:</span><span class="skill-level">NVIDIA Xavier NX · Atlas 200 DK</span></li>
+            <li><span>编程语言：</span><span class="skill-level">C / C++ · MATLAB · Verilog</span></li>
+            <li><span>通信模块：</span><span class="skill-level">UWB（dwm1000）· NRF24L01 · HC05</span></li>
+            <li><span>视觉与算法：</span><span class="skill-level">YOLOv5 · OpenPose </span></li>
+            <li><span>无线传输：</span><span class="skill-level">DeepStream · MQTT · ffmpeg </span></li>
+            <li><span>IDE:</span><span class="skill-level">VSCode · Keil · Matlab · Multisim · Quartus · Cursor</span></li>
           </ul>
         </div>
       </div>
@@ -207,7 +219,7 @@
           <p class="contact-hint">
             可以通过邮箱或电话联系我：<br />
             邮箱：<a href="mailto:13542858693@163.com">13542858693@163.com</a><br />
-            电话：13542858693
+            电话：13542858693 <br />
             微信：xiyu13542858693
           </p>
         </div>
