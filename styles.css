@@ -303,6 +303,21 @@ textarea {
   z-index: 1;
 }
 
+.hero-card-image {
+  margin-top: 10px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  background: rgba(15, 23, 42, 0.9);
+}
+
+.hero-card-image img {
+  display: block;
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
 .hero-tag {
   display: inline-flex;
   align-items: center;
@@ -405,6 +420,13 @@ textarea {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.card-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .thumb-1 {
