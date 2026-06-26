@@ -30,7 +30,7 @@
       <div class="container hero-inner">
         <div class="hero-text">
           <h1><span>vihan chan 陈维航</span></h1>
-          <p>西安电子科技大学-通信工程26届-聚焦嵌入式软硬件开发与视觉算法本地部署。</p>
+          <p>西电通信工程26届，新一代电子信息研0</p>
           <div class="hero-actions">
             <a href="#portfolio" class="btn primary">项目</a>
             <a href="#contact" class="btn ghost">联系方式</a>
@@ -223,7 +223,12 @@
             微信：xiyu13542858693
           </p>
         </div>
-        <form class="contact-form" id="contactForm">
+        <form
+          class="contact-form"
+          id="contactForm"
+          method="POST"
+          data-endpoint="https://formspree.io/f/your-form-id"
+        >
           <div class="form-group">
             <label for="name">姓名</label>
             <input type="text" id="name" name="name" placeholder="请输入你的姓名" required />
@@ -236,6 +241,7 @@
             <label for="message">留言</label>
             <textarea id="message" name="message" rows="4" placeholder="简单介绍一下你的来意" required></textarea>
           </div>
+          <input type="hidden" name="_subject" value="来自个人网站的新留言" />
           <button type="submit" class="btn primary full-width">发送消息</button>
           <p class="form-feedback" id="formFeedback" aria-live="polite"></p>
         </form>

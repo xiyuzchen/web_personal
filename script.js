@@ -58,10 +58,38 @@ if (contactForm && formFeedback) {
       return;
     }
 
-    formFeedback.textContent = "已收到你的消息，我会尽快回复。";
+    const endpoint = contactForm.dataset.endpoint;
+
+    if (!endpoint) {
+      formFeedback.textContent = "配置缺少 Formspree 地址，请稍后重试。";
+      formFeedback.classList.remove("success");
+      formFeedback.classList.add("error");
+      return;
+    }
+
+    formFeedback.textContent = "正在发送，请稍候……";
     formFeedback.classList.remove("error");
     formFeedback.classList.add("success");
-    contactForm.reset();
+
+    fetch(endpoint, {
+      method: "POST",
+      body: formData,
+      headers: {
+        Accept: "application/json",
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        formFeedback.textContent = "已成功发送留言，我会尽快回复。";
+        contactForm.reset();
+      })
+      .catch(() => {
+        formFeedback.textContent = "发送失败，请稍后重试或直接通过邮箱联系我。";
+        formFeedback.classList.remove("success");
+        formFeedback.classList.add("error");
+      });
   });
 }
 
